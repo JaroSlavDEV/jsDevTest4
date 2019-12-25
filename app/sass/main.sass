@@ -1,0 +1,189 @@
+@import vars
+@import fonts
+@import libs
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+input, textarea, button
+	outline: none
+	border: 0
+
+	&:focus
+		outline: none
+
+	&:focus:required:invalid
+		outline: none
+		border-color: red
+
+	&:required:valid
+		outline: none
+		border-color: green
+
+h1, h2, h3, h4, h5, h6
+	padding: 0
+	margin: 0
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: 'Roboto', sans-serif
+	overflow-x: hidden
+	color: $text
+
+// Custom Sass
+
+header, footer
+	height: 100px
+	background: #5C6BC0
+
+	h1
+		line-height: 100px
+		text-align: center
+		color: #F5F5F5
+
+main
+	padding: 150px 0
+		
+	.offices, .staff
+		box-shadow: 0px 0px 10px 5px rgba(92,107,192,0.5)
+		padding: 50px 20px
+
+		h3
+			text-align: center
+			font-size: 25px
+			
+		form
+			display: flex
+			flex-direction: column
+			align-items: center
+			text-align: center
+			padding: 50px 0
+			
+			input
+				width: 200px
+				height: 40px
+				background: #5C6BC0
+				color: #ffffff
+				text-align: center
+
+				&:hover
+					background: #5C6BC0
+					color: #ffffff
+
+			.actions
+				width: 100%
+				margin-top: 50px
+				display: flex
+				justify-content: space-around
+
+				button
+					width: 200px
+					height: 40px
+					background: #ffffff
+					color: #5C6BC0
+					border: 1px solid #5C6BC0
+					transition: all 0.5s ease
+
+					&:hover
+						background: #5C6BC0
+						color: #ffffff
+
+					&:disabled
+						display: none
+
+		table
+			width: 100%
+			text-align: center
+
+			thead
+				th
+					&:nth-last-child(1)
+						width: 30px
+					
+					&:nth-last-child(2)
+						width: 30px
+
+			tbody
+				tr
+					&:hover
+						cursor: pointer
+					
+					&[data-offices-record-checked="true"], &[data-staff-record-checked="true"]
+						background: #5C6BC0
+						color: #fff
+						cursor: pointer
+
+						td
+							button
+								background: #5C6BC0
+								color: #fff
+
+			tr
+				transition: all 0.5s ease
+
+			th, td 
+				border-bottom: 1px solid #5C6BC0
+				height: 50px
+
+				button
+					display: block
+					width: 30px
+					margin-left: auto
+					background: #ffffff
+					color: #5C6BC0
+					transition: all 0.5s ease
+
+					&:disabled
+						display: none
+
+.modal
+	position: fixed
+	left: 0
+	top: 0
+	width: 100%
+	height: 100%
+	background-color: rgba(0, 0, 0, 0.5)
+	opacity: 0
+	visibility: hidden
+	transform: scale(1.1)
+	transition: all 0.5s ease
+
+	&_content
+		width: 300px
+		position: absolute
+		top: 40%
+		left: 50%
+		transform: translate(-50%, -50%)
+		width: 700px
+		padding: 30px 30px
+		background: #fff
+		border-radius: 10px
+	
+	&_close
+		display: block
+		position: absolute
+		top: 15px
+		right: 15px
+		width: 25px
+		height: 25px
+		line-height: 25px
+		text-align: center
+		font-size: 30px
+		cursor: pointer
+		transition: all 0.5s ease
+
+		&:hover
+			color: #5C6BC0
+
+	&_show
+		opacity: 1
+		visibility: visible
+		transform: scale(1.0)
+		transition: all 0.5s ease
